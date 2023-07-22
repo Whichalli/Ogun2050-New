@@ -1,0 +1,40 @@
+aside.controls-sidebar data-bind="tabs, css: { 'is-active': navVisible }"
+
+  button.toggle-nav data-bind="click: toggleNav, swipe: swipeNav, css: { 'is-clicked': navToggled }"
+    .tooltip= t('nav')
+
+  nav.tab-nav.pathway-category-tab-nav
+    ul data-bind="foreach: pathwayCategories"
+      li data-bind="css: { 'active': $parent.currentTabId() === id }"
+        button.tab-button data-bind="attr: { 'data-tab': id }, click: $parent.setActiveTab, text: name"
+
+  .tabs.pathway-categories.js-scrollable data-bind="foreach: pathwayCategories"
+    .tab data-bind="foreach: $parent.pathway().actionsForCategory(id), css: { 'active': $parent.currentTabId() === id }"
+
+      .item
+        .details
+          .label
+            label data-bind="text: name"
+          span.value-label data-bind="text: value"
+
+          button.info-button data-bind="click: $parents[2].showOverlay"
+
+        .option
+          <!-- ko if: getTypeName() === 'rangeInt' -->
+            input data-bind="rangeInt: value, params: { name: name, tooltips: tooltips, min: min, max: max, step: step }"
+          <!-- /ko -->
+
+          <!-- ko if: getTypeName() === 'rangeFloat' -->
+            input data-bind="rangeFloat: value, params: { name: name, tooltips: tooltips, min: min, max: max, step: step }"
+          <!-- /ko -->
+
+          <!-- ko if: getTypeName() === 'radio' -->
+            span.radios data-bind="radio: value, params: { name: name, tooltips: tooltips, max: max }"
+          <!-- /ko -->
+
+          span.tooltip
+            .arrow
+            .text
+
+  button.show-overview data-bind="click: toggleOverview, swipe: swipeOverview"= I18n.t('calculator.all.show')
+

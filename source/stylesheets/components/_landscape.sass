@@ -1,0 +1,1413 @@
+#landscape
+  background: #fff
+  overflow: hidden
+  -webkit-touch-callout: none
+  @include user-select(none)
+
+.layer
+  position: absolute
+  width: 1320px
+  margin-left: -660px
+  background-repeat: no-repeat
+
+  &.zero
+    position: relative
+    top: 30px
+    left: 0
+    margin-left: 0
+
+  &.one
+    background-image: url('/layers/layer1.svg')
+    background-size: auto 145%
+    top: 30px
+    left: 50%
+    height: 220px
+    z-index: 1
+
+    *
+      z-index: 2
+
+    &:before
+      left: -99%
+      background: #95CFCA
+      top: 40px
+
+    &:after
+      background-image: url('/layers/layer1.svg')
+      background-size: auto 145%
+      left: 92%
+
+    .ie &
+      height: 290px
+      background-size: auto 100%
+
+      &:before,
+      &:after
+        background-size: auto 290px
+
+      &:before
+        left: -75%
+        top: 36px
+
+      &:after
+        left: 1156px
+
+  &.two
+    background-image: url('/layers/layer2.svg')
+    background-size: auto 82%
+    left: 47%
+    top: 90px
+    height: 320px
+    z-index: 3
+
+    *
+      z-index: 4
+
+    &:before,
+    &:after
+      background-image: url('/layers/layer2.svg')
+
+    &:before
+      left: -90%
+
+    &:after
+      left: 1220px
+      top: 16px
+      background-position: 33px -18px
+
+    .ie &
+      left: 54%
+      height: 200px
+      background-size: auto 100%
+
+      &:before
+        // left: 1px
+
+      &:after
+        left: 71%
+        top: 16px
+        background-position: 33px -14px
+
+    .ie9 &
+
+      &:before
+        display: none
+
+      &:after
+        top: 6px
+        left: 50%
+
+      &::after
+        top: 6px
+        left: 50%
+
+
+
+  &.three
+    background-image: url('/layers/layer3.svg')
+    background-size: auto 127%
+    top: 45px
+    left: 50%
+    height: 260px
+    z-index: 5
+
+    *
+      z-index: 6
+
+    &:before,
+    &:after
+      background-image: url('/layers/layer3.svg')
+
+    &:before
+      background-size: auto 127%
+      background-position: -360px 0
+      right: 99%
+      top: 0
+
+    &:after
+      background-size: auto 290px
+      left: 75%
+      top: 14px
+
+    .ie &
+      top: 35px
+      height: 269px
+      background-position: -102px 3px
+
+      &:before
+        background-position: -102px 3px
+
+      &:after
+        height: 269px
+
+    .ie9 &
+      &:before
+        background-position: -442px 3px
+
+      &:after
+        background-position: 928px 23px
+        left: 100%
+
+  &.four
+    background-size: auto 125%
+    background-image: url('/layers/layer4.svg')
+    top: 117px
+    left: 50%
+    height: 200px
+    z-index: 7
+
+    *
+      z-index: 8
+
+    &:before,
+    &:after
+      background-image: url('/layers/layer4.svg')
+
+    &:before
+      left: -1285px
+      top: 94px
+
+    &:after
+      top: -22px
+      left: 32%
+      background-size: auto 124%
+
+    .ie &
+      &:before
+        left: -720px
+
+    .ie9 &
+      &:before
+        left: -493px!important
+        top: 29px
+        background-position: 0 -18px
+        background-size: auto 210px
+
+      &:after
+        left: 447px
+        top: 116px
+
+  &.five
+    bottom: 0
+    height: 330px
+    left: 71%
+    background-size: auto 124%
+    background-image: url('/layers/layer5.svg')
+    z-index: 9
+
+    .ie &
+      background-position: -139px 0
+
+    *
+      z-index: 10
+
+    &:after
+      background-image: url('/layers/layer5.svg')
+      background-size: auto 124%
+      top: 1px
+      left: 1156px
+
+  &:before,
+  &:after
+    background-repeat: no-repeat
+    content: " "
+    position: absolute
+    bottom: 0
+    top: 0
+    width: 100%
+    @include transform(scaleX(-1))
+    filter: FlipH
+    -ms-filter: "FlipH"
+
+.layer > *, i
+  background-position: 50% 100%
+  background-repeat: no-repeat
+  background-size: 100% auto
+  position: absolute
+  margin-right: 4px
+
+i
+  opacity: 0
+  @include transition(opacity .3s)
+
+  &.is-active,
+  &.persist
+    opacity: 1
+
+  &:after
+    background-position: 50% 100%
+    background-repeat: no-repeat
+    content: " " /* is this smart ? */
+    position: absolute
+    bottom: 0
+    top: 0
+    left: 0
+    right: 0
+
+.airplane
+  background-image: url(/svgs/airplane.svg)
+  height: 20px
+
+  &[data-value="1"]
+    top: -19px
+    left: 25%
+    width: 25px
+
+  &[data-value="2"]
+    top: -25px
+    left: 30%
+    width: 20px
+
+  &[data-value="3"]
+    top: -23px
+    left: 50%
+    width: 19px
+
+  &[data-value="4"]
+    top: -10px
+    left: 31%
+    width: 18px
+
+  &[data-value="5"]
+    top: -3px
+    left: 42%
+    width: 16px
+
+.algae
+  background-image: url(/svgs/algae.svg)
+  top: 55px
+  left: 430px
+  width: 20px
+  height: 20px
+  @include transform(scale(1))
+  @include transition(transform .2s)
+
+  &[data-value="3"]
+    @include transform(scale(1.2))
+
+  &[data-value="4"]
+    @include transform(scale(1.4))
+
+  &[data-value="5"]
+    @include transform(scale(1.6))
+
+.bike
+  background-image: url(/svgs/bike.svg)
+  bottom: 61px
+  width: 18px
+  height: 18px
+
+  &[data-value="1"]
+    bottom: 60px
+    left: 566px
+
+  &[data-value="2"]
+    left: 260px
+
+  &[data-value="3"]
+    bottom: 55px
+    left: 760px
+
+  &[data-value="4"]
+    left: 216px
+
+.biocrops
+  position: absolute
+
+  i
+    display: inline-block
+    position: relative
+
+#biocrops-layer-3
+  bottom: 96px
+  left: 700px
+  height: 18px
+
+  .biocrop
+    width: 6px
+    height: 18px
+    background-image: url(/svgs/biocrop_layer3.svg)
+
+#biocrops-layer-4
+  bottom: 36px
+  left: 152px
+  height: 26px
+
+  .biocrop
+    background-image: url(/svgs/biocrop_layer4.svg)
+    width: 8px
+    height: 25px
+
+.bioenergy
+  background-image: url(/svgs/bioenergy_powerstation.svg)
+
+  &.coal
+    background-image: url(/svgs/coal_powerstation.svg)
+
+  /* on layer 1 */
+
+  &[data-value="1"]
+    top: -7px
+    left: 785px
+    width: 20px
+    height: 22px
+
+  &[data-value="3"]
+    top: 1px
+    left: 675px
+    width: 14px
+    height: 17px
+
+  &[data-value="5"]
+    top: -1px
+    left: 840px
+    width: 14px
+    height: 16px
+
+  &[data-value="7"]
+    top: -3px
+    left: 700px
+    width: 18px
+    height: 20px
+
+  &[data-value="9"]
+    top: 5px
+    left: 625px
+    width: 17px
+    height: 19px
+
+  &[data-value="10"]
+    top: -3px
+    left: 920px
+    width: 16px
+    height: 18px
+
+  /* on layer 2 */
+
+  &[data-value="2"]
+    top: 14px
+    left: 320px
+    width: 47px
+    height: 50px
+
+    .ie &
+      top: 24px
+
+  &[data-value="4"]
+    top: -10px
+    left: 1245px
+    width: 24px
+    height: 27px
+
+  &[data-value="6"]
+    top: -22px
+    left: 785px
+    width: 37px
+    height: 40px
+
+  &[data-value="8"]
+    top: -14px
+    left: 560px
+    width: 44px
+    height: 47px
+
+.boat
+  background-image: url(/svgs/boat.svg)
+  top: 11px
+  width: 30px
+  height: 30px
+
+  .ie &
+    top: 7px
+
+  &.green
+  /* what goes here? */
+
+  &[data-value="1"]
+    left: 8%
+
+  &[data-value="2"]
+    left: 11%
+
+  &[data-value="3"]
+    left: 14%
+
+  &[data-value="4"]
+    left: 17%
+
+  &[data-value="5"]
+    left: 20%
+
+.boiler
+  bottom: 153px
+  left: 607px
+  width: 16px
+  height: 26px
+  background-image: url(/svgs/gas_white.svg)
+  background-size: 50%
+
+  &.electric
+    background-image: url(/svgs/electric_white.svg)
+    background-size: 50%
+
+.bus
+  background-image: url(/svgs/bus.svg)
+  bottom: 61px
+  width: 44px
+  height: 26px
+
+  &:after
+    background-size: 20px 20px
+    margin-bottom: 28px
+    top: auto
+    width: 20px
+    height: 20px
+    left: 50%
+    margin-left: -10px
+
+  &.electric
+    &:after
+      background-image: url(/svgs/vehicle-electricity.svg)
+
+  &.hydrogen
+    &:after
+      background-image: url(/svgs/vehicle-hydrogen.svg)
+      z-index: 8
+
+  &[data-value="1"]
+    left: 452px
+
+  &[data-value="2"]
+    left: 377px
+
+  &[data-value="3"]
+    bottom: 55px
+    left: 713px
+
+  &[data-value="4"]
+    bottom: 50px
+    left: 875px
+
+.car
+  background-image: url(/svgs/car.svg)
+  bottom: 61px
+  width: 24px
+  height: 14px
+
+  &:after
+    background-size: 20px 20px
+    margin-bottom: 18px
+    width: 20px
+    height: 20px
+    top: auto
+    left: 50%
+    margin-left: -10px
+
+  &.electric
+    &:after
+      background-image: url(/svgs/vehicle-electricity.svg)
+
+  &.hydrogen
+    &:after
+      background-image: url(/svgs/vehicle-hydrogen.svg)
+
+  &[data-value="1"]
+    left: 285px
+
+  &[data-value="2"]
+    bottom: 57px
+    left: 674px
+
+  &[data-value="3"]
+    bottom: 58px
+    left: 607px
+
+  &[data-value="4"]
+    left: 103px
+
+  &[data-value="5"]
+    left: 426px
+
+  &[data-value="6"]
+    left: 43px
+
+  &[data-value="7"]
+    bottom: 52px
+    left: 837px
+
+  &[data-value="8"]
+    bottom: 60px
+    left: 538px
+
+  &[data-value="9"]
+    left: 314px
+
+.ccs
+  background-image: url(/svgs/ccs_powerstation.svg)
+
+  /* in layer 1 */
+
+  &[data-value="1"]
+    top: -1px
+    left: 751px
+    width: 30px
+    height: 26px
+
+  &[data-value="3"]
+    top: -1px
+    left: 866px
+    width: 27px
+    height: 25px
+
+  &[data-value="5"]
+    top: -1px
+    left: 1005px
+    width: 27px
+    height: 25px
+
+  /* on layer 2 */
+
+  &[data-value="2"]
+    top: -12px
+    left: 1010px
+    width: 60px
+    height: 50px
+
+  &[data-value="4"]
+    top: -8px
+    left: 1425px
+    width: 49px
+    height: 42px
+
+.commercial-fan
+  background-image: url(/svgs/commercial_fan_green.svg)
+  z-index: 7!important // infront of turbine
+
+  &[data-value="1"],
+  &[data-value="3"],
+  &[data-value="5"],
+  &[data-value="6"]
+    background-image: url(/svgs/commercial_fan_grey.svg)
+
+  &[data-value="1"]
+    bottom: 233px
+    left: 108px
+    width: 13px
+    height: 7px
+
+  &[data-value="2"]
+    bottom: 238px
+    left: 187px
+    width: 18px
+    height: 8px
+
+  &[data-value="3"]
+    bottom: 176px
+    left: 141px
+    width: 20px
+    height: 9px
+
+  &[data-value="4"]
+    bottom: 175px
+    left: 261px
+    width: 15px
+    height: 7px
+
+  &[data-value="5"]
+    bottom: 199px
+    left: 223px
+    width: 17px
+    height: 8px
+
+  &[data-value="6"]
+    bottom: 192px
+    left: 48px
+    width: 16px
+    height: 7px
+
+.commercial-turbine
+  &[data-value="1"],
+  &[data-value="3"],
+  &[data-value="5"],
+  &[data-value="6"]
+    background-image: url(/svgs/turbine_grey.svg)
+
+  &[data-value="2"],
+  &[data-value="4"]
+    background-image: url(/svgs/turbine_land.svg)
+
+  &[data-value="1"]
+    top: 7px
+    left: 108px
+    width: 13px
+    height: 20px
+
+    .ie &
+      top: 9px
+
+  &[data-value="2"]
+    top: -7px
+    left: 186px
+    width: 18px
+    height: 30px
+
+  &[data-value="3"]
+    top: 54px
+    left: 141px
+    width: 20px
+    height: 30px
+
+  &[data-value="4"]
+    top: 63px
+    left: 261px
+    width: 15px
+    height: 22px
+
+    .ie &
+      top: 65px
+
+  &[data-value="5"]
+    top: 35px
+    left: 223px
+    width: 17px
+    height: 25px
+
+    .ie &
+      top: 37px
+
+  &[data-value="6"]
+    top: 45px
+    left: 48px
+    width: 16px
+    height: 24px
+
+    .ie &
+      top: 47px
+
+.cow
+  background-image: url(/svgs/cow.svg)
+  bottom: 36px
+  width: 46px
+  height: 34px
+
+  .ie &
+    filter: none // no black outlines
+    -ms-filter: none
+
+  &[data-value="1"]
+    left: 386px
+
+    .ie &
+      bottom: 36px
+
+  &[data-value="2"]
+    left: 88px
+
+    .ie &
+      bottom: 36px
+
+    .ie9 &
+      bottom: 39px
+
+  &[data-value="3"]
+    bottom: 30px
+    left: 640px
+
+    .ie &
+      bottom: 35px
+
+  &[data-value="4"]
+    bottom: 34px
+    left: 526px
+
+    .ie &
+      bottom: 36px
+
+  &[data-value="5"]
+    left: 26px
+
+    .ie &
+      bottom: 35px
+
+    .ie9 &
+      bottom: 43px
+
+  &[data-value="2"],
+  &[data-value="4"],
+  &[data-value="5"]
+    @include transform(scaleX(-1))
+    filter: FlipH
+    -ms-filter: "FlipH"
+
+.dam
+  background-image: url(/svgs/hydo_dam.svg)
+  height: 55px
+  top: 33px
+  width: 133px
+
+  .ie &
+    top: 31px
+
+  &[data-value="1"]
+    left: 600px
+
+  &[data-value="2"]
+    left: 1200px
+
+.factory
+  bottom: 34px
+  right: 0
+  width: 200px
+  position: absolute
+  z-index: 0!important // behind bush
+
+  i
+    display: inline-block
+    position: relative
+
+    &.factory-building
+      background-image: url(/svgs/factory.svg)
+
+  &[data-value="1"]
+    .factory-building
+      width: 50px
+      height: 60px
+      top: 42px
+      left: -25px
+
+  &[data-value="2"]
+    .factory-building
+      width: 100px
+      height: 110px
+      top: 42px
+      left: -25px
+
+  &[data-value="3"]
+    .factory-building
+      width: 100px
+      height: 100px
+      display: block
+      top: 42px
+      left: -25px
+
+  &[data-value="4"]
+    .factory-building
+      width: 80px
+      height: 90px
+      top: -72px
+      left: -25px
+
+  &[data-value="5"]
+    .factory-building
+      display: none
+
+.geothermal
+  background-image: url(/svgs/geothermal.svg)
+
+  /* on layer 1 */
+
+  &[data-value="2"]
+    top: 14px
+    left: 1069px
+    width: 4px
+    height: 15px
+
+  &[data-value="4"]
+    top: 14px
+    left: 731px
+    width: 4px
+    height: 15px
+
+  /* on layer 2 */
+
+  &[data-value="1"]
+    top: 32px
+    left: 538px
+    width: 10px
+    height: 50px
+
+  &[data-value="3"]
+    top: 64px
+    left: 305px
+    width: 8px
+    height: 40px
+
+  &[data-value="5"]
+    top: 22px
+    left: 674px
+    width: 10px
+    height: 61px
+
+.home-fan
+  background-image: url(/svgs/home_fan.svg)
+  bottom: 33px
+  left: 528px
+  width: 36px
+  height: 42px
+
+.imports
+  height: 20px
+  left: -50px
+  position: absolute
+  @include transition(all 0.3s ease-in)
+
+  &:before
+    border: 10px solid transparent
+    content: " "
+    position: absolute
+    right: -20px
+
+  &:after
+    background-repeat: no-repeat
+    background-size: 100% auto
+    bottom: 4px
+    content: " "
+    height: 12px
+    position: absolute
+    right: 0
+    width: 8px
+
+.electricity-imports
+  background: #28A197
+  top: -30px
+  min-width: 15px
+
+  &:before
+    border-left-color: #28A197
+
+  &:after
+    background-image: url(/svgs/electric_white.svg)
+
+  &[data-value="1"]
+    width: 0px
+
+  &[data-value="2"]
+    width: 0px
+
+  &[data-value="3"]
+    width: 100px
+
+  &[data-value="4"]
+    width: 150px
+
+  &[data-value="5"]
+    width: 200px
+
+.bioenergy-imports
+  background: #95CFCA
+  top: -5px
+  min-width: 15px
+
+  &:before
+    border-left-color: #95CFCA
+
+  &:after
+    background-image: url(/svgs/bioenergy_white.svg)
+
+  &[data-value="1"]
+    width: 0px
+
+  &[data-value="2"]
+    width: 0px
+
+  &[data-value="3"]
+    width: 100px
+
+  &[data-value="4"]
+    width: 150px
+
+  &[data-value="5"]
+    width: 200px
+
+.insulation
+  border-left: 6px solid rgb(90, 99, 120)
+  border-right: 6px solid rgb(90, 99, 120)
+  bottom: 30px
+  display: inline-block
+  height: 183px
+  left: 563px
+  position: absolute
+  width: 222px
+  @include transition(all 0.3s ease-in)
+
+  &[data-value="2"]
+    border-width: 10px
+
+  &[data-value="3"]
+    border-width: 12px
+
+  &[data-value="4"]
+    border-width: 14px
+
+  &[data-value="5"]
+    border-width: 16px
+
+.bulb
+  background-image: url(/svgs/bulb.svg)
+  bottom: 162px
+  left: 667px
+  width: 22px
+  height: 34px
+
+  &.led
+    background-image: url(/svgs/bulb_led.svg)
+
+.landfill
+  background-image: url(/svgs/landfill_high.svg)
+  left: 1180px
+  top: 50px
+  width: 57px
+  height: 40px
+  @include transition(top .2s)
+
+  .ie9 &
+    margin-left: -22px
+    margin-top: -5px
+
+  .ie &
+    left: 1120px
+
+  &[data-value="1"]
+    top: 15px
+
+  &[data-value="2"]
+    top: 5px
+
+  &[data-value="3"]
+    top: 15px
+
+  &[data-value="4"]
+    top: 25px
+
+.lorry
+  background-image: url(/svgs/lorry.svg)
+  bottom: 61px
+  width: 30px
+  height: 22px
+
+  &[data-value="1"]
+    left: 341px
+
+  &[data-value="2"]
+    bottom: 60px
+    left: 503px
+
+  &[data-value="3"]
+    bottom: 58px
+    left: 636px
+
+  &[data-value="4"]
+    left: 141px
+
+  &[data-value="5"]
+    left: 180px
+
+  &[data-value="6"]
+    bottom: 54px
+    left: 785px
+
+.meter
+  height: 10px
+  width: 42px
+  display: block
+  background-image: url(/svgs/dial.svg)
+  @include transition(transform .3s ease-in)
+  @include transform-origin(90% 50%)
+  background-size: 100% 100%
+
+.commercial-meter
+  bottom: 90px
+  left: 153px
+
+  &[data-value="1"]
+    @include transform(rotate(90deg))
+
+  &[data-value="2"]
+    @include transform(rotate(112.5deg))
+
+  &[data-value="3"]
+    @include transform(rotate(99deg))
+
+  &[data-value="4"]
+    @include transform(rotate(81deg))
+
+  &[data-value="5"]
+    @include transform(rotate(63deg))
+
+.home-meter
+  bottom: 54px
+  left: 609px
+
+  .ie9 &
+    bottom: 60px
+
+  &[data-value="1"]
+    @include transform(rotate(180deg))
+
+  &[data-value="2"]
+    @include transform(rotate(144deg))
+
+  &[data-value="3"]
+    @include transform(rotate(119deg))
+
+  &[data-value="4"]
+    @include transform(rotate(70deg))
+
+  &[data-value="5"]
+    @include transform(rotate(49deg))
+
+.nuclear
+  background-image: url(/svgs/nuclear_powerstation.svg)
+
+  /* on layer 1 */
+
+  &[data-value="1"]
+    top: -5px
+    left: 970px
+    width: 22px
+    height: 20px
+
+  &[data-value="3"]
+    top: 3px
+    left: 812px
+    width: 14px
+    height: 12px
+
+  &[data-value="5"]
+    top: -5px
+    left: 1040px
+    width: 18px
+    height: 20px
+
+  /* on layer 2 */
+
+  &[data-value="2"]
+    top: 6px
+    left: 490px
+    width: 40px
+    height: 34px
+
+  &[data-value="4"]
+    top: -6px
+    left: 838px
+    width: 28px
+    height: 24px
+
+.cooker
+  background-size: 30% auto
+  position: absolute
+
+  i
+    @extend .persist
+
+  .hob
+    background-size: 60% auto
+    position: absolute
+
+  &[data-value="3"]
+    .hob.left
+      background-image: url(/svgs/electric_white.svg)
+
+.home-cooker
+  bottom: 60px
+  left: 710px
+  width: 31px
+  height: 50px
+
+  &[data-value="3"]
+    .hob.left
+      background-image: url(/svgs/electric.svg)
+
+  .hob
+    bottom: 37px
+    width: 10px
+    height: 11px
+
+    &.left
+      background-image: url(/svgs/gas.svg)
+      left: 4px
+
+    &.right
+      background-image: url(/svgs/electric.svg)
+      left: 17px
+
+  .oven
+    background-image: url(/svgs/electric.svg)
+    width: 9px
+    height: 16px
+    bottom: 3px
+    left: 10px
+
+.commercial-cooker
+  bottom: 99px
+  left: 80px
+  width: 18px
+
+  .oven
+    background-image: url(/svgs/electric_white.svg)
+    width: 6px
+    height: 9px
+    top: -9px
+    left: -4px
+
+  .hob
+    bottom: 18px
+
+    &.left
+      background-image: url(/svgs/gas_white.svg)
+      left: -9px
+      width: 9px
+      height: 10px
+
+    &.right
+      background-image: url(/svgs/electric_white.svg)
+      left: -1px
+      width: 10px
+      height: 10px
+
+.recycling
+  bottom: 60px
+  left: 930px
+  height: 40px
+
+  i
+    display: inline-block
+    position: relative
+
+  .bin
+    background-image: url(/svgs/recycling.svg)
+    width: 27px
+    height: 40px
+
+.home-solar
+  bottom: 220px
+  position: absolute
+  height: 37px
+
+  &.left
+    left: 620px
+
+  &.right
+    left: 678px
+
+  .solar
+    background-image: url(/svgs/home_solar.svg)
+    display: inline-block
+    position: relative
+    width: 25px
+    height: 37px
+
+    &[data-value="1"]
+    &[data-value="2"]
+    &[data-value="3"]
+
+.commercial-solar
+  .solar
+    background-image: url(/svgs/commercial_solar.svg)
+
+  &.left
+    .solar
+      [data-value="1"]
+        bottom: 244px
+        left: 103px
+        width: 10px
+
+      [data-value="2"]
+        bottom: 249px
+        left: 185px
+        width: 11px
+
+      [data-value="3"]
+        bottom: 185px
+        left: 141px
+        width: 11px
+
+      [data-value="4"]
+        bottom: 182px
+        left: 268px
+        width: 9px
+
+      [data-value="5"]
+        bottom: 209px
+        left: 227px
+        width: 10px
+
+      [data-value="6"]
+        bottom: 200px
+        left: 40px
+        width: 10px
+
+  &.right
+    .solar
+      [data-value="1"]
+        bottom: 244px
+        left: 128px
+        width: 10px
+
+      [data-value="2"]
+        bottom: 249px
+        left: 218px
+        width: 11px
+
+      [data-value="3"]
+        bottom: 185px
+        left: 177px
+        width: 11px
+
+      [data-value="4"]
+        bottom: 182px
+        left: 294px
+        width: 9px
+
+      [data-value="5"]
+        bottom: 209px
+        left: 255px
+        width: 10px
+
+      [data-value="6"]
+        bottom: 200px
+        left: 66px
+        width: 10px
+
+.solar-field
+  top: 45px
+  left: 55%
+  position: absolute
+
+  i
+    &.solar
+      background-image: url(/svgs/field_solar.svg)
+      display: inline-block
+      position: relative
+      width: 17px
+      height: 24px
+
+.train
+  bottom: 95px
+  left: 448px
+  position: absolute
+  z-index: 1 !important
+
+  i
+    display: inline-block
+    position: relative
+
+    &.train-left
+      background-image: url(/svgs/train_left.svg)
+      width: 40px
+      height: 16px
+
+      &.electric:after
+        background-image: url(/svgs/electric.svg)
+        background-position: 28px 100%
+        background-size: 18% auto
+        margin-bottom: 3px
+
+    &.train-right
+      background-image: url(/svgs/train_right.svg)
+      width: 40px
+      height: 16px
+
+      &.electric:after
+        background-image: url(/svgs/electric.svg)
+        background-position: 5px 100%
+        background-size: 18% auto
+        margin-bottom: 3px
+
+    &.carriage
+      background-image: url(/svgs/carriage.svg)
+      width: 0
+      margin: 0
+      @include transition(opacity .2s, width .2s .2s, margin .2s .2s)
+
+      &.is-active
+        width: 34px
+        height: 18px
+        margin: 0 4px 0 0
+        @include transition(opacity .2s .2s, width .2s, margin .2s)
+
+.thermometer
+  bottom: 140px
+  left: 732px
+  width: 12px
+  height: 38px
+
+  &[data-value="1"]
+    background-image: url(/svgs/thermometer_3.svg)
+
+  &[data-value="2"]
+    background-image: url(/svgs/thermometer_5.svg)
+
+  &[data-value="3"]
+    background-image: url(/svgs/thermometer_4.svg)
+
+  &[data-value="4"]
+    background-image: url(/svgs/thermometer_3.svg)
+
+  &[data-value="5"]
+    background-image: url(/svgs/thermometer_2.svg)
+
+.windfarm
+  position: absolute
+  height: 22px
+
+  i
+    display: inline-block
+    position: relative
+
+  &.land
+    top: -8px
+    left: 1095px
+
+    .turbine
+      background-image: url(/svgs/turbine_land.svg)
+      width: 14px
+      height: 22px
+
+  &.sea
+    top: 20px
+    left: 501px
+
+    .ie &
+      top: 19px
+
+      .turbine
+        width: 12px
+        height: 14px
+
+    .turbine
+      background-image: url(/svgs/turbine_sea.svg)
+      width: 12px
+      height: 22px
+
+.ie9
+  .cow
+    // no black outlines please
+    filter: none
+    -ms-filter: none
+
+  // css dial... ie9 flips bg images whilst rotating >:0
+  .meter
+    background: $color-highlight
+    height: 3px
+    width: 40px
+
+    &:before
+      content: ''
+      width: 5px
+      height: 5px
+      border-radius: 50%
+      background: $color-highlight
+      position: absolute
+      bottom: -1px
+      right: 0
+
+  .home-cooker
+    .hob
+      &.left
+        background-size: 100%
+        height: 10px
+
+  .commercial-meter
+    bottom: 90px
+    left: 160px

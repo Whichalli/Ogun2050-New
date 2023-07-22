@@ -1,0 +1,17 @@
+define(['knockout', 'text!../../components/text.html', 'sizeChecker'], function(ko, html, SizeChecker){
+  'use strict';
+
+  var ViewModel = function() {
+
+    SizeChecker.destroy();
+    self.heading = '<%= I18n.t('splash.heading') %>';
+    self.content = '<%= m('splash.content') %>';
+    self.button = '<%= I18n.t('splash.button')%>';
+  };
+
+  return {
+    viewModel: ViewModel,
+    template: html
+  }
+});
+

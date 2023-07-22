@@ -1,0 +1,61 @@
+.fixed-logo
+  position: fixed
+  top: 90px
+  left: 10px
+  width: 15%
+  max-width: 200px
+  min-width: 50px
+  @include media($media-medium)
+    top: 90px
+    left: 2em
+
+#classic
+  position: fixed
+  right: 10px
+  bottom: 5px
+  z-index: 10
+  cursor: pointer
+
+  p
+    margin: 0
+    color: white
+    font-size: 1.25em
+
+  a
+    color: white
+
+
+.splash-content
+  h1
+    margin: 10px auto 10px 0
+    padding: 0
+    line-height: 1
+    @include media($media-small)
+      margin: 0 auto 1em
+      font-size: 30px
+
+  background-position: bottom center
+  background-repeat: no-repeat
+  height: 100%
+  z-index: 10
+  position: relative
+  opacity: 0
+  @include animation(fade 0.75s ease-in-out)
+  @include animation-delay(0.25s)
+  @include animation-fill-mode(forwards)
+
+  font-size: 12px
+  @include media($media-small)
+    font-size: 1.25em
+
+.splash-image
+  display: block
+  position: absolute
+  bottom: 0
+  left: 0
+  z-index: 0
+  width: 100%
+  opacity: 0
+  @include animation(fade 0.75s ease-in-out)
+  @include animation-fill-mode(forwards)
+

@@ -1,0 +1,43 @@
+.calculator
+  .loading data-bind="css: { hidden: hasLoaded() }"
+    .inner
+      div.spinner.question
+      h5 loading...
+
+  .viewport
+    main-nav params="navState: navState, pathway: currentPathway"
+
+    .wrapper data-bind="css: { 'with-nav': navState() > 0, 'with-subnav': navState() === 2 }"
+
+      #deprecation-warning This calculator will be withdrawn on or after 30 June 2022. The current UK 2050 calculator for Net Zero is the <a href='https://www.mackaycarboncalculator.beis.gov.uk'>MacKay Carbon Calculator</a>. It launched in December 2020. For further information or to comment, go to <a href='https://www.gov.uk/guidance/carbon-calculator'>https://www.gov.uk/guidance/carbon-calculator</a>.
+
+      .content-wrapper
+        calculator-header params="navState: navState, pathwayName: currentPathway().name, pathway: currentPathway, cityscapeVisible: cityscapeVisible"
+
+        .content
+          section#share.share data-bind="css: { 'is-active': shareVisible() }, component: { name: 'share', params: { pathway: currentPathway } }"
+
+          section#flows-fullscreen.modal-overlay.scrollable.js-scrollable data-bind="css: { 'is-active': fullscreenVisible() }"
+            = partial "partials/flows-fullscreen"
+
+          = partial "partials/cityscape"
+
+          .inner-content data-bind="visible: mainViewVisible"
+
+            .landscape-label-large data-bind="swipe: swipeLandscape, click: openCity, css: { 'is-active': !cityscapeVisible() }"
+              label= t('calculator.header.your_landscape')
+              span.toggle-city data-bind="css: { 'is-active': cityscapeVisible }"
+            .landscape-label-small data-bind="swipe: swipeLandscape, click: closeCity, css: { 'is-active': cityscapeVisible() }"
+              label= t('calculator.header.your_landscape')
+              span.toggle-city data-bind="css: { 'is-active': cityscapeVisible }"
+
+            .chart-tabs-container data-bind="visible: !shareVisible(), component: { name: 'chart-tabs', params: { pathway: currentPathway, pathwayUpdating: pathwayUpdating, componentsLoaded: componentsLoaded } }, css: { full: !cityscapeVisible() }, transitionEnd: redrawCharts"
+
+          = partial "partials/pathway-overlay"
+
+          pathway-sidebar data-bind="visible: mainViewVisible" params="pathway: currentPathway, overviewVisible: overviewVisible"
+
+          all-pathway-actions params="pathway: currentPathway, visible: overviewVisible"
+
+          section#faq.modal-overlay.scrollable.js-scrollable data-bind="css: { 'is-active': faqVisible() }, component: { name: 'faq' }"
+

@@ -1,0 +1,65 @@
+.overview
+  overflow: hidden
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  background: #fff
+  @include transition(transform .3s ease-in-out)
+  left: 100%
+  height: 100%
+
+  &.active
+    @include transform(translatex(-100%))
+
+.pathway-actions-wrapper
+  overflow: auto
+  height: calc(100% - $header-height)
+
+  section
+    margin-bottom: 40px
+
+
+.pathway-actions
+  margin: 0
+  padding: 0
+  width: 100%
+  display: block
+  @include clearfix
+
+  > li
+    list-style: none
+    margin: 0
+    padding: 0 2em 0 0
+    width: 100%
+    height: calc(100%)
+    float: left
+
+    @include media($media-medium)
+      width: 50%
+
+    @include media($media-big)
+      width: 25%
+
+    .action-wrapper
+      @extend %vertical-centered
+      padding: 10px
+      min-height: 80px
+      width: 100%
+      border-bottom: 1px dashed #ccc
+
+    .key
+      padding-right: 0.5em
+
+    .value
+      padding: 2px .25em
+      background: #ccc
+      text-align: center
+      width: 50px
+
+      &.high
+        background: #D53980
+        color: #fff
+      &.med
+        background: #E394B8
+        color: #fff

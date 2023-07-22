@@ -1,0 +1,51 @@
+a href=home_path
+  img.fixed-logo.is-active#fixed-logo src="/images/logo.png" draggable="false"
+
+.guide.centered data-bind="scrolls"
+  .container
+    section.scrollable.intro
+      article
+        .col = m 'guide.1'
+
+    section.scrollable
+      article
+        .col
+          img src="/images/guide/screenshot.jpg" draggable="false"
+        .col = m 'guide.2'
+
+    section.scrollable
+      article
+        .col=  m 'guide.3'
+        .col
+          img src="/images/guide/graph.png" draggable="false"
+
+    section.scrollable
+      article
+        = m 'guide.4'
+        img alt="Progress arrow" src="/images/guide/arrow.jpg" draggable="false"
+
+    section.scrollable
+      article
+        .col
+          img src="/images/guide/sliders.png" draggable="false"
+        .col = m 'guide.5'
+
+    section.scrollable
+      article
+        .col = m 'guide.6'
+        .col
+          img src="/images/guide/target.jpg" draggable="false"
+
+    section.scrollable
+      article
+        .col
+          img src="/images/guide/example-pathways.jpg" draggable="false"
+        .col = m 'guide.8'
+
+    section.scrollable
+      article
+        h2= t('guide.done.title')
+        = link_to t('guide.done.button'), calculator_path, class: :button
+
+  = link_to t('guide.button'), calculator_path, class: "skip-guide"
+

@@ -1,0 +1,262 @@
+.calculator-header
+  position: relative
+  height: $header-height
+  z-index: 14
+  min-height: 65px
+  @include row
+  background: $color-background-dark
+  border-bottom: 1px solid $color-border-dark
+
+  .settings
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    z-index: 5
+    cursor: pointer
+    width: $chart-tabs-width-small
+    border-right: 1px solid $color-border-dark
+
+    @include media($media-medium)
+      width: $chart-tabs-width
+
+    .toggle-nav
+      position: absolute
+      top: 0
+      left: 0
+      width: $chart-tabs-width-small
+      height: 100%
+      color: $color-button-text
+
+      &:before
+        position: absolute
+        top: 50%
+        left: 50%
+        @include transform(translate(-50%, -50%))
+
+    .pathway-owner
+      display: none
+      padding-left: 56px
+      padding-right: 15px
+      height: 100%
+      @extend %vertical-centered
+      color: #fff
+      font-size: $font-size-header
+
+      @include media($media-medium)
+        display: table
+
+  .total-co2-reduction
+    position: relative
+    width: 100%
+    padding-left: $chart-tabs-width-small
+    padding-right: $small-controls-width
+    height: 100%
+    color: $color-background-dark
+    position: relative
+
+    @include media($media-medium)
+      padding-left: $chart-tabs-width
+
+    @include media($media-mediumbig)
+      padding-right: $right-col-width
+
+    @include media($media-bigger)
+      padding-right: $right-col-width-bigger
+
+    .container
+      @extend %vertical-centered
+      text-align: right
+      padding-right: 2em
+      width: 50%
+      background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0) 75%)
+      position: relative
+
+      &:after
+        content: ''
+        position: absolute
+        width: 0
+        height: 0
+        right: 0
+        top: 0
+        border-top: 40px solid $color-background-dark
+        border-left: 40px solid transparent
+
+      &:before
+        content: ''
+        position: absolute
+        width: 0
+        height: 0
+        right: 0
+        bottom: 0
+        border-bottom: 40px solid $color-background-dark
+        border-left: 40px solid transparent
+
+  .goal-wrapper
+    z-index: 30
+    top: 0
+    width: 100%
+    height: 100%
+    // margin-top: -69px
+    @include transform(translateY(-100%))
+    position: relative
+
+    .goal
+      position: absolute
+      top: 50%
+      left: 81%
+      color: #fff
+      @include transform(translateY(-50%))
+      @extend %icon-chevron-before
+
+      @include media($media-big)
+        left: 82%
+        font-size: $font-size-header
+
+        &:before
+          padding-right: 10px
+
+  .spacer
+    position: relative
+    width: 100%
+
+  .target-reached-tooltip
+    padding: 20px 20px 20px
+    min-width: 250px
+    width: 33%
+    z-index: 14
+    position: fixed
+    top: 0
+    margin-top: 89px
+    right: 16%
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)
+    background-color: $color-background-light
+    color: $color-background-dark
+    @include transition(background .3s ease-in-out, color .3s ease-in-out)
+
+    &.is-open
+      background-color: $color-highlight
+      color: $color-button-text
+
+      .arrow
+        border-color: $color-highlight transparent
+
+    @include media ('(min-width: 800px)')
+      right: 15%
+    @include media ('(min-width: 860px)')
+      right: 9%
+    @include media ('(min-width: 1000px)')
+      right: 21%
+    @include media ('(min-width: 1070px)')
+      right: 19%
+    @include media ('(min-width: 1200px)')
+      right: 17%
+    @include media($media-big)
+      right: 20px
+      top: 100%
+      position: absolute
+      margin-top: -49px
+
+    .arrow
+      left: 42%
+      margin-left: 2px
+      border-color: $color-background-light transparent
+      @include transition(border-color .3s ease-in-out)
+
+    .close
+      position: absolute
+      top: 2px
+      right: 8px
+      line-height: 1
+      font-size: 25px
+      cursor: pointer
+
+
+  .controls
+    @include col(140px)
+    @include omega
+    position: absolute
+    top: 0
+    right: 0
+    height: 100%
+
+    @include media($media-mediumbig)
+      width: $right-col-width
+
+    @include media($media-bigger)
+      width: $right-col-width-bigger
+
+    .spinner
+      width: 100%
+      height: 100%
+      background-size: 100% auto
+
+    button
+      border: none
+      color: $color-button-text
+      background: $color-highlight
+      height: 100%
+      padding: 20px
+      text-align: center
+
+    .finish-share
+      @extend %vertical-centered
+      padding-right: 70px
+      width: 100%
+      border-left: 1px solid $color-border-dark
+      @extend %icon-flag-before
+
+      &:before
+        font-size: 1.5em
+        margin-left: -18px
+
+      span
+        display: none
+        font-size: $font-size-header
+
+      @include media($media-mediumbig)
+        span
+          display: inline-block
+          position: relative
+
+        &:before
+          content: ''
+
+    .help
+      position: absolute
+      top: 0
+      right: 0
+      width: 70px
+      font-size: 2em
+      font-family: $font-bold
+      border-left: 1px solid $color-background
+      line-height: 1
+
+      .spinner
+        @extend .spinner.pink
+
+      %white
+        color: #fff
+        background: #4a5163
+        .spinner
+          @extend .spinner.question
+
+      &.share-closer
+        @extend %white
+        .spinner
+          @extend .spinner.pink
+
+      &.white
+        background: #fff
+        color: #000
+        .spinner
+          @extend .spinner.white
+
+      &.question
+        cursor: help
+        @extend %white
+
+      span
+        width: 100%
+        height: 100%
+

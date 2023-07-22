@@ -1,0 +1,90 @@
+.calculator
+  height: 100%
+
+.viewport
+  @include container(auto)
+  height: 100%
+  overflow: hidden
+  position: relative
+
+.loading
+  position: absolute
+  z-index: 100
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  display: table
+  background: #4A5163
+  opacity: 1
+  @include transform(translateZ(0))
+
+  .spinner
+    margin: auto
+    width: 100px
+    height: 100px
+    display: block
+
+  &.hidden
+    z-index: -100
+    opacity: 0
+    @include transition(z-index 0.3s linear 0s, opacity 0.3s)
+
+  .inner
+    display: table-cell
+    vertical-align: middle
+
+  img
+    border: 0
+    display: block
+    margin: auto
+    width: 90px // halved for retina support
+
+  h5
+    text-align: center
+    color: #fff
+    font-size: 4vh
+    padding: 0
+    margin: 0
+
+.wrapper
+  @include col(100%)
+  @include transform(translateX(0))
+  @include transition(transform .3s ease-in-out)
+  @include omega
+  height: 100%
+  &.with-nav
+    @include transform(translateX($nav-width / 2))
+  &.with-subnav
+    @include transform(translateX($nav-width))
+
+
+.cityscape
+.content-wrapper
+  @include col(100%)
+  @include omega
+  height: 100%
+
+.content
+  @include col
+  @include omega
+  position: relative
+  height: calc(100% - #{$header-height})
+
+.inner-content
+  width: 100%
+  position: relative
+  height: 100%
+  @include omega
+
+  @include media($media-big)
+    width: calc(100% - #{$right-col-width})
+
+  @include media($media-bigger)
+    width: calc(100% - #{$right-col-width-bigger})
+
+.toggle-nav
+  @extend %icon-menu-before
+  .with-nav &
+    @extend %icon-close-before
+

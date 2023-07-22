@@ -1,0 +1,78 @@
+html, body
+  height: 100%
+
+#deprecation-warning
+  background: #d53980
+  padding: 20px 20px 19px 20px
+  font-size: 16px
+  font-family: 'Lato', sans-serif
+  color: #fff
+  border-bottom: solid 2px #28a197
+
+  a
+    font-weight: bold
+    color: #fff
+
+    &:hover
+      text-decoration: underline
+
+body
+  max-width: $max-width
+  margin: auto
+
+  // backgrounds dont tile nicely in ie9, so dont let it get big enough to do that.
+  .ie9 &
+    max-width: 2000px
+
+.centered
+  display: table
+  height: 100%
+  width: 100%
+  text-align: center
+  background-size: cover
+  color: $color-intro-text
+
+  section
+    height: 100vh
+    width: 100%
+    display: table
+    vertical-align: middle
+
+  article
+    margin: auto
+    line-height: 1.5
+    display: table-cell
+    vertical-align: middle
+
+// Background hack for IOS safari's sake
+.background-container
+  left: 0px
+  top: 0px
+  height: 100vh
+  width: 100vw
+  z-index: -99999
+  position: fixed
+  overflow: hidden
+  margin: 0
+  padding: 0
+
+
+.background-inner
+  position: absolute
+  margin: 0
+  padding: 0
+  height: 100%
+  width: 100%
+  max-height: none
+  min-height: none
+  left: 0
+  top: 0
+  z-index: -99999
+  background: #2C313B
+  background-image: radial-gradient(circle at 50% 100%, #2c313b 15%,rgba(0,0,0,0) 40%), url(/images/rays.svg)
+  background-size: cover
+  background-position: center center
+
+.container
+  height: 100%
+

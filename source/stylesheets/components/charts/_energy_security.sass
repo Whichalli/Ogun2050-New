@@ -1,0 +1,29 @@
+.energy-security
+  color: #ffffff
+  padding: $chart-tab-padding-bigger
+  @include media('screen and (min-width: 1450px)')
+    padding: $chart-tab-padding
+
+  article
+    margin-bottom: 2em
+
+  %title
+    background: $color-background-dark
+
+  table
+    width: 100%
+    margin: 2em 0 4em
+
+    thead
+      td
+        @extend %title
+
+    tr
+      td
+        border: 1px solid #ffffff
+        padding: 0.5em
+
+        &:first-of-type
+          @extend %title
+          width: 33.333%
+

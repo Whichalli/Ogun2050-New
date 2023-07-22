@@ -1,0 +1,56 @@
+.scroll
+  overflow-y: scroll
+  height: 100%
+
+.air-quality
+  color: #FFF
+  text-align: left
+  padding: $chart-tab-padding-bigger
+  @include media('screen and (min-width: 1450px)')
+    padding: $chart-tab-padding
+
+  a
+    color: #FFF
+
+  ul
+    font-size: 1em
+    padding-left: 1em
+
+    li
+      margin: 1em
+
+
+  p
+    font-size: 1em
+
+
+
+  @media screen and (min-width: 1200px)
+    @include clearfix
+
+  .col
+    position: relative
+
+    .chart
+      height: 500px
+
+
+    @media screen and (min-width: 1200px)
+      float: left
+      min-height: 100%
+
+      &:first-child
+        width: 42%
+        height: 100%
+        padding-right: 20px
+        border-right: 1px solid #747985
+
+      &:last-child
+        width: 58%
+
+    @media screen and (max-width: 1199px)
+
+      &:first-child
+        margin-bottom: 50px
+
+

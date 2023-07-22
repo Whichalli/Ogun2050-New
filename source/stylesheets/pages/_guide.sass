@@ -1,0 +1,169 @@
+$scroll-nav-width: 25px
+
+.guide
+  .info-button
+    @include media($media-medium)
+      font-size: 16px
+      width: 18px
+      height: 18px
+
+.scrollable-nav
+  $color-scroll-nav: #95ceca
+  display: none
+
+  @include media($media-medium)
+    display: block
+    position: fixed
+    right: 30px
+    top: 50%
+    @include transform(translate(0, -50%))
+
+    > ul
+
+      list-style: none
+
+      > li
+        margin-bottom: $scroll-nav-width
+
+    a
+      display: block
+      border: 3px solid $color-scroll-nav
+      border-radius: 50px
+      width: $scroll-nav-width
+      height: $scroll-nav-width
+      text-indent: 999px
+      overflow: hidden
+
+      &.active
+        background: $color-scroll-nav
+
+.scrollable-next
+  @extend %icon-button, %icon-down_arrow-before
+  position: fixed
+  margin: auto
+  bottom: 30px
+  right: 1em
+  color: #ffffff
+  width: 60px
+  height: 60px
+  text-indent: 100%
+  overflow: hidden
+  opacity: 1
+  outline: none
+  @include transition(opacity .3s ease-in-out)
+  @include clearfix
+
+  @include media($media-medium)
+    right: 50%
+    @include transform(translateX(50%))
+
+  &.is-hidden
+    opacity: 0
+
+  &:before
+    font-size: 50px
+    position: absolute
+    top: 0
+    left: -114%
+
+.guide
+  .fixed-logo
+    opacity: 0
+    @include transition(opacity .3s ease-in-out)
+
+    &.is-active
+      opacity: 1
+      @include transition(opacity .3s .3s ease-in-out)
+
+    @media(orientation: portrait)
+      opacity: 1
+
+    @include media($media-big)
+      opacity: 1!important
+
+  section
+    text-align: center
+    width: 100%
+
+    &:after
+      content: " "
+      clear: both
+      display: block
+
+  .container
+    max-width: 1200px
+    padding: 0 3em
+    margin: 0 auto
+
+  article
+    line-height: 1.6em
+    height: 100vh
+
+    @include media($media-big)
+      font-size: 1.2em
+
+    h1, h2
+      margin-bottom: 10px
+      font-size: 1.2em
+
+    .col
+      @include col(100%)
+      padding: 0
+      text-align: left
+
+      @include media($media-medium)
+        width: 50%
+        padding: 0 20px
+        float: none
+        display: table-cell
+        vertical-align: middle
+
+    img
+      width: 70%
+      max-width: 100%
+      height: auto
+      margin: 1em auto
+      display: block
+
+      @include media($media-medium)
+        width: auto
+
+    a
+      color: rgba(149, 207, 202, 1)
+      text-decoration: none
+
+      &.button
+        @extend .button
+
+  .intro
+    background-image: url(/images/guide/map.svg)
+    background-position: center
+    background-repeat: no-repeat
+    background-size: auto 65%
+
+    @include media($media-medium)
+      background-position: 90% 50%
+
+      .col
+        display: block
+        width: 50%
+
+.button
+  text-transform: uppercase
+  background: $color-highlight
+  display: inline-block
+  color: $color-button-text
+  text-decoration: none
+  border-radius: 4px
+  font-family: $font-light
+  margin: 1em 0 0 0
+  border: 0
+  padding: 1em 2em
+  text-rendering: optimizeLegibility
+  -webkit-font-smoothing: subpixel-antialiased
+
+.skip-guide
+  @extend .button
+  position: fixed
+  bottom: 30px
+  left: 30px

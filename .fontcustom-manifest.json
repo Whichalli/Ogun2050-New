@@ -1,0 +1,189 @@
+{
+  "checksum": {
+    "previous": "a39c0c1053f67dec60ed5bdfd01a08b44fc1348ad84d72fb7769e3d7e31b7a5b",
+    "current": "a39c0c1053f67dec60ed5bdfd01a08b44fc1348ad84d72fb7769e3d7e31b7a5b"
+  },
+  "fonts": [
+    "source/fonts/icons_a39c0c1053f67dec60ed5bdfd01a08b4.ttf",
+    "source/fonts/icons_a39c0c1053f67dec60ed5bdfd01a08b4.svg",
+    "source/fonts/icons_a39c0c1053f67dec60ed5bdfd01a08b4.woff",
+    "source/fonts/icons_a39c0c1053f67dec60ed5bdfd01a08b4.eot"
+  ],
+  "glyphs": {
+    "air": {
+      "codepoint": 61696,
+      "source": "source/icons/air.svg"
+    },
+    "alert": {
+      "codepoint": 61697,
+      "source": "source/icons/alert.svg"
+    },
+    "arrow-left": {
+      "codepoint": 61698,
+      "source": "source/icons/arrow-left.svg"
+    },
+    "arrow-right": {
+      "codepoint": 61699,
+      "source": "source/icons/arrow-right.svg"
+    },
+    "chevron": {
+      "codepoint": 61700,
+      "source": "source/icons/chevron.svg"
+    },
+    "close": {
+      "codepoint": 61701,
+      "source": "source/icons/close.svg"
+    },
+    "costs": {
+      "codepoint": 61702,
+      "source": "source/icons/costs.svg"
+    },
+    "down_arrow": {
+      "codepoint": 61703,
+      "source": "source/icons/down_arrow.svg"
+    },
+    "electricity": {
+      "codepoint": 61704,
+      "source": "source/icons/electricity.svg"
+    },
+    "emissions": {
+      "codepoint": 61705,
+      "source": "source/icons/emissions.svg"
+    },
+    "energy": {
+      "codepoint": 61706,
+      "source": "source/icons/energy.svg"
+    },
+    "energy-conversion-facilities": {
+      "codepoint": 61707,
+      "source": "source/icons/energy-conversion-facilities.svg"
+    },
+    "energy-security": {
+      "codepoint": 61708,
+      "source": "source/icons/energy-security.svg"
+    },
+    "envelope": {
+      "codepoint": 61709,
+      "source": "source/icons/envelope.svg"
+    },
+    "facebook": {
+      "codepoint": 61710,
+      "source": "source/icons/facebook.svg"
+    },
+    "flag": {
+      "codepoint": 61711,
+      "source": "source/icons/flag.svg"
+    },
+    "flows": {
+      "codepoint": 61712,
+      "source": "source/icons/flows.svg"
+    },
+    "full-screen": {
+      "codepoint": 61713,
+      "source": "source/icons/full-screen.svg"
+    },
+    "gas-power-stations": {
+      "codepoint": 61714,
+      "source": "source/icons/gas-power-stations.svg"
+    },
+    "geothermal-stations-facilities": {
+      "codepoint": 61715,
+      "source": "source/icons/geothermal-stations-facilities.svg"
+    },
+    "google-plus": {
+      "codepoint": 61716,
+      "source": "source/icons/google-plus.svg"
+    },
+    "info": {
+      "codepoint": 61717,
+      "source": "source/icons/info.svg"
+    },
+    "landscape_down": {
+      "codepoint": 61718,
+      "source": "source/icons/landscape_down.svg"
+    },
+    "landscape_up": {
+      "codepoint": 61719,
+      "source": "source/icons/landscape_up.svg"
+    },
+    "linkedin": {
+      "codepoint": 61720,
+      "source": "source/icons/linkedin.svg"
+    },
+    "map": {
+      "codepoint": 61721,
+      "source": "source/icons/map.svg"
+    },
+    "menu": {
+      "codepoint": 61722,
+      "source": "source/icons/menu.svg"
+    },
+    "nuclear-power-stations": {
+      "codepoint": 61723,
+      "source": "source/icons/nuclear-power-stations.svg"
+    },
+    "overview": {
+      "codepoint": 61724,
+      "source": "source/icons/overview.svg"
+    },
+    "power-stations-with-ccs": {
+      "codepoint": 61725,
+      "source": "source/icons/power-stations-with-ccs.svg"
+    },
+    "power-stations-without-ccs": {
+      "codepoint": 61726,
+      "source": "source/icons/power-stations-without-ccs.svg"
+    },
+    "powerstation-with-css": {
+      "codepoint": 61730,
+      "source": "source/icons/powerstation-with-css.svg"
+    },
+    "powerstation-without-css": {
+      "codepoint": 61731,
+      "source": "source/icons/powerstation-without-css.svg"
+    },
+    "share-alt": {
+      "codepoint": 61727,
+      "source": "source/icons/share-alt.svg"
+    },
+    "sliders": {
+      "codepoint": 61728,
+      "source": "source/icons/sliders.svg"
+    },
+    "twitter": {
+      "codepoint": 61729,
+      "source": "source/icons/twitter.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": "fontcustom.yml",
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "icons",
+    "force": false,
+    "input": {
+      "templates": "source/icons",
+      "vectors": "source/icons"
+    },
+    "no_hash": false,
+    "output": {
+      "_icons.sass": "source/stylesheets/base",
+      "css": "source/fonts",
+      "fonts": "source/fonts",
+      "preview": "source/fonts"
+    },
+    "preprocessor_path": "",
+    "quiet": false,
+    "templates": [
+      "_icons.sass"
+    ]
+  },
+  "templates": [
+    "source/stylesheets/base/_icons.sass"
+  ]
+}
